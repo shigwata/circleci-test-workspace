@@ -31,7 +31,8 @@ jobs:
       - attach_workspace:
           at: tmp/<< parameters.env >>/dist
       - run: ls tmp/<< parameters.env >>/
-      - run: cp -r tmp/<< parameters.env >>/dist .
+      - run: cp -r tmp/<< parameters.env >>/dist/ .
+      - run: ls ./
       - run: cat dist/a.txt
 
 workflows:
