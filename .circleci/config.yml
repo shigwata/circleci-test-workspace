@@ -12,12 +12,12 @@ jobs:
     steps:
       - run: mkdir -p dist
       - run: echo "<< parameters.env >>" > dist/a.txt
-      - run: mkdir -p tmp/<< parameters.env >>
-      - run: cp -r dist/ tmp/<< parameters.env >>/
-      - run: ls tmp/<< parameters.env >>/
-      - run: ls tmp/<< parameters.env >>/dist/
+      - run: mkdir -p ~/tmp/<< parameters.env >>
+      - run: cp -r dist/ ~/tmp/<< parameters.env >>/
+      - run: ls ~/tmp/<< parameters.env >>/
+      - run: ls ~/tmp/<< parameters.env >>/dist/
       - persist_to_workspace:
-          root: tmp/<< parameters.env >>
+          root: ~/tmp/<< parameters.env >>
           paths:
             - dist
   deploy:
@@ -30,10 +30,10 @@ jobs:
       - image: circleci/node
     steps:
       - attach_workspace:
-          at: tmp/<< parameters.env >>/dist
-      - run: ls tmp/<< parameters.env >>/
-      - run: ls tmp/<< parameters.env >>/dist/
-      - run: cp -r tmp/<< parameters.env >>/dist/ ./
+          at: ~/tmp/<< parameters.env >>/dist
+      - run: ls ~/tmp/<< parameters.env >>/
+      - run: ls ~/tmp/<< parameters.env >>/dist/
+      - run: cp -r ~/tmp/<< parameters.env >>/dist/ ./
       - run: ls
       - run: ls dist/
       - run: ls dist/dist/
