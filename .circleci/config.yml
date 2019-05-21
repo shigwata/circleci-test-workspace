@@ -32,10 +32,11 @@ jobs:
       - attach_workspace:
           at: tmp/<< parameters.env >>/dist
       - run: ls tmp/<< parameters.env >>/
-      - run: ls tmp/<< parameters.env >>/dist
+      - run: ls tmp/<< parameters.env >>/dist/
       - run: cp -r tmp/<< parameters.env >>/dist/ ./
       - run: ls
       - run: ls dist/
+      - run: ls dist/dist/
       - run: cat dist/a.txt
 
 workflows:
