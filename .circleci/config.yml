@@ -16,6 +16,7 @@ jobs:
       - run: cp -r dist/ ~/tmp/<< parameters.env >>/
       - run: ls ~/tmp/<< parameters.env >>/
       - run: ls ~/tmp/<< parameters.env >>/dist/
+      - run: tree ~/tmp/<< parameters.env >>
       - persist_to_workspace:
           root: ~/tmp/<< parameters.env >>
           paths:
@@ -31,6 +32,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/tmp/<< parameters.env >>/dist
+      - run: tree ~/tmp/<< parameters.env >>
       - run: ls ~/tmp/<< parameters.env >>/
       - run: ls ~/tmp/<< parameters.env >>/dist/
       - run: cp -r ~/tmp/<< parameters.env >>/dist/ ./
