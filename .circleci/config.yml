@@ -15,6 +15,7 @@ jobs:
       - run: mkdir -p tmp/<< parameters.env >>
       - run: cp -r dist/ tmp/<< parameters.env >>/
       - run: ls tmp/<< parameters.env >>/
+      - run: ls tmp/<< parameters.env >>/dist/
       - persist_to_workspace:
           root: tmp/<< parameters.env >>
           paths:
@@ -32,7 +33,7 @@ jobs:
           at: tmp/<< parameters.env >>/dist
       - run: ls tmp/<< parameters.env >>/
       - run: ls tmp/<< parameters.env >>/dist
-      - run: cp -r tmp/<< parameters.env >>/dist/ .
+      - run: cp -r tmp/<< parameters.env >>/dist .
       - run: ls
       - run: ls dist/
       - run: cat dist/a.txt
