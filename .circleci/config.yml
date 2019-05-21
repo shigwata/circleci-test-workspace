@@ -32,7 +32,8 @@ jobs:
           at: tmp/<< parameters.env >>/dist
       - run: ls tmp/<< parameters.env >>/
       - run: cp -r tmp/<< parameters.env >>/dist/ .
-      - run: ls ./
+      - run: ls
+      - run: ls dist/
       - run: cat dist/a.txt
 
 workflows:
